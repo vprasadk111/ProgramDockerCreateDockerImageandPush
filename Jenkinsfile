@@ -1,8 +1,5 @@
-pipeline {
-	agent any
-	stages{
-	
-	def app
+node {
+    def app
 
     stage('Clone repository') {
       
@@ -30,7 +27,4 @@ pipeline {
             app.push("latest")
         }
     }
-	
-	}
-	
 }
