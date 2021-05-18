@@ -1,5 +1,8 @@
-node {
-    def app
+pipeline {
+	agent any
+	stages{
+	
+	def app
 
     stage('Clone repository') {
       
@@ -22,9 +25,12 @@ node {
 
     stage('Push image') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'git') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
     }
+	
+	}
+	
 }
