@@ -1,7 +1,6 @@
 //Orginal
 
 node {
-def app
 
 //Giving confirmation to the job.
 	
@@ -19,32 +18,16 @@ checkout scm
 //Building the image
 	
 stage('Build image') {
-//app = docker.build("vprasadk/programdockercreatedockerimageandpush")
+	
   sh 'docker build -t vprasadk/programdockercreatedockerimageandpush:0.0.1 .'
 }
 
-//Testing the image
-	
-//stage('Test image') {
-//app.inside {
-//sh 'echo " Image Created !!! "'
-//}
-//}
 	
 //Starting the container
 
 stage('Start Container') {
            
-sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
+sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:0.0.1'
 }
 
-//Pusing the image to Docker Hub
-	
-//stage('Push image') {
-	//dockerhub - ID given while creating Docker Hub user
-//docker.withRegistry('https://registry.hub.docker.com') {
-//app.push("${env.BUILD_NUMBER}")
-//app.push("latest")
-//}
-//}
 }
