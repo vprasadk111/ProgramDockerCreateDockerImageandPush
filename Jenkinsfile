@@ -41,7 +41,7 @@ pipeline {
       }
     
     
-    *****//
+   //
     
           stage('Container start') { 
 
@@ -58,7 +58,7 @@ pipeline {
 
       }
     
-    //******
+    //
 
       stage('Push Image to Docker Hub') { 
 
