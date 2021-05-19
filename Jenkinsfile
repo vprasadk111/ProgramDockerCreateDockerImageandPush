@@ -37,6 +37,25 @@ stages {
         } 
 
     }
+    
+     //
+    
+          stage('Container start') { 
+
+          steps { 
+
+              script { 
+
+                  //dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                sh 'docker run -p 5000:5000 -d vprasadk/programdockercontainer:$BUILD_NUMBER'
+
+              }
+
+          } 
+
+      }
+    
+    //
 
     stage('Deploy our image') { 
 
