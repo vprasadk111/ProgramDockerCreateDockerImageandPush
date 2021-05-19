@@ -19,7 +19,8 @@ checkout scm
 //Building the image
 	
 stage('Build image') {
-app = docker.build("vprasadk/programdockercreatedockerimageandpush")
+//app = docker.build("vprasadk/programdockercreatedockerimageandpush")
+  app = sh 'docker build -t vprasadk/programdockercreatedockerimageandpush'
 }
 
 //Testing the image
