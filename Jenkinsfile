@@ -1,5 +1,11 @@
 node {
 def app
+	
+stage('Confirmation') {
+input('Do you really want to proceed with ?')
+}
+	
+	
 stage('Clone repository') {
 checkout scm
 }
