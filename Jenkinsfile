@@ -22,7 +22,7 @@ sh 'echo " Image Created !!! "'
 }
 
 stage('Start Container') {
-app = docker.run("vprasadk/programdockercreatedockerimageandpush")
+app1 = docker.run("vprasadk/programdockercreatedockerimageandpush")
 }
 	
 stage('Test Container') {
