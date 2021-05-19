@@ -1,6 +1,6 @@
 node {
 def app
-dep app1
+def app1
 	
 stage('Confirmation') {
 input('Do you really want to proceed with ?')
