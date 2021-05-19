@@ -37,6 +37,26 @@ pipeline {
           } 
 
       }
+    
+    
+    //
+    
+          stage('Container start') { 
+
+          steps { 
+
+              script { 
+
+                  //dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                sh 'docker run -p 5000:5000 -d dockerImage'
+
+              }
+
+          } 
+
+      }
+    
+    //
 
       stage('Deploy our image') { 
 
