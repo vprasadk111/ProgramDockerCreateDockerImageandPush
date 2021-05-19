@@ -41,12 +41,12 @@ sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:la
 	
 stage('Push image') {
 	//dockerhub - ID given while creating Docker Hub user
-docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+//docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 //docker.withRegistry('https://hub.docker.com/','dockerhub') {
 //app.push("${env.BUILD_NUMBER}")
-app.push("latest")
+//app.push("latest")
 	
-	//sh 'docker push vprasadk/programdockercreatedockerimageandpush:latest'
-}
+	sh 'docker push vprasadk/programdockercreatedockerimageandpush:latest'
+//}
 }
 }
