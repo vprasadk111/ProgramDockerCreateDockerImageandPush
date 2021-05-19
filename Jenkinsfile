@@ -48,7 +48,7 @@ pipeline {
               script { 
 
                   //dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-                sh 'docker run -p 5000:5000 -d vprasadk/programdockercontainer'
+                sh 'docker run -p 5000:5000 -d vprasadk/programdockercontainer:$BUILD_NUMBER'
 
               }
 
