@@ -1,30 +1,30 @@
-node {
-    def app
-
-    stage('Clone repository') {
-      
-
-        checkout scm
-    }
-
-    stage('Build image') {
-  
-       app = docker.build("vprasadk/test")
-    }
-
-    stage('Test image') {
-  
-
-        app.inside {
+pipeline{
+	def app
+	stages{
+		stage('Clone repository'){
+			steps{
+				checkout scm
+			}
+		stage('Build image'){
+			steps{
+				app = docker.build("vprasadk/test")
+			}
+		}
+		stage('Test image'){
+				steps{
+					app.inside {
             sh 'echo "Tests passed"'
         }
-    }
-
-    stage('Push image') {
-        
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+				}
+		  }
+			stage('Push image'){
+				steps{
+						docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
-    }
+				}
+			}
+
+	}
 }
