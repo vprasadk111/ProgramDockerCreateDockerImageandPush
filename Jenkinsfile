@@ -1,49 +1,62 @@
-//Orginal
+pipeline { 
 
-node {
-def app
+  environment { 
 
-//Giving confirmation to the job.
-	
-stage('Confirmation') {
-input('Do you really want to proceed with ?')
-}
+      registry = "vprasadk/programdockercontainer" 
 
-//Clone repo from GitHub
-	
-stage('Clone repository') {
-checkout scm
-}
+      registryCredential = 'dockerhub' 
 
-	
-//Building the image
-	
-stage('Build image') {
-app = docker.build("vprasadk/programdockercreatedockerimageandpush")
-}
+      dockerImage = '' 
 
-//Testing the image
-	
-stage('Test image') {
-app.inside {
-sh 'echo " Image Created !!! "'
-}
-}
-	
-//Starting the container
+  }
 
-stage('Start Container') {
-           
-sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
-}
+  agent any 
 
-//Pusing the image to Docker Hub
-	
-stage('Push image') {
-	//dockerhub - ID given while creating Docker Hub user
-docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-app.push("${env.BUILD_NUMBER}")
-app.push("latest")
-}
-}
+  stages { 
+
+      stage('Cloning our Git') { 
+
+          steps { 
+
+              git 'https://github.com/vprasadk111/ProgramDockerCreateDockerImageandPush.git' 
+
+          }
+
+      } 
+
+      stage('Building our image') { 
+
+          steps { 
+
+              script { 
+
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+
+              }
+
+          } 
+
+      }
+
+      stage('Deploy our image') { 
+
+          steps { 
+
+              script { 
+
+                  docker.withRegistry( '', registryCredential ) { 
+
+                      dockerImage.push() 
+
+                  }
+
+              } 
+
+          }
+
+      } 
+
+
+  }
+
 }
