@@ -32,18 +32,18 @@ sh 'echo " Image Created !!! "'
 	
 //Starting the container
 
-stage('Start Container') {
+//stage('Start Container') {
            
-sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
-}
+//sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
+//}
 
 //Pusing the image to Docker Hub
 	
-stage('Push image') {
+//stage('Push image') {
 	//dockerhub - ID given while creating Docker Hub user
 //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 //app.push("${env.BUILD_NUMBER}")
 //app.push("latest")
 //}
-}
+//}
 }
