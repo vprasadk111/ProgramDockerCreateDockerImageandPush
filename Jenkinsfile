@@ -46,5 +46,5 @@ sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:la
 //app.push("${env.BUILD_NUMBER}")
 //app.push("latest")
 //}
-}
+//}
 }
