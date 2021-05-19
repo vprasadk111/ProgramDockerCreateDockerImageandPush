@@ -41,10 +41,12 @@ sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:la
 //Pusing the image to Docker Hub
 	
 //stage('Push image') {
-	//dockerhub - ID given while creating Docker Hub user
+//	dockerhub - ID given while creating Docker Hub user
 //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 //app.push("${env.BUILD_NUMBER}")
 //app.push("latest")
 }
 }
+}
+
 }
