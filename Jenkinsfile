@@ -56,15 +56,15 @@ stages {
 
     } 
 
-    stage('Cleaning up') { 
+    //stage('Cleaning up') { 
 
-        steps { 
+        //steps { 
 
-            sh "docker rmi $registry:$BUILD_NUMBER" 
+           // sh "docker rmi $registry:$BUILD_NUMBER" 
 
-        }
+       // }
 
-    } 
+   // } 
 
 }
 
