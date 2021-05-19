@@ -20,7 +20,7 @@ checkout scm
 	
 stage('Build image') {
 //app = docker.build("vprasadk/programdockercreatedockerimageandpush")
-  sh 'docker build -t vprasadk/programdockercreatedockerimageandpush:0.0.1'
+  sh 'docker build -t vprasadk/programdockercreatedockerimageandpush:0.0.1 .'
 }
 
 //Testing the image
