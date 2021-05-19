@@ -84,7 +84,7 @@ pipeline {
               
               script {
 32
-                sh 'docker rmi $registry:$BUILD_NUMBER' 
+                sh 'docker rmi $registry:$BUILD_NUMBER'
               }
 33
             }
