@@ -23,9 +23,8 @@ sh 'echo " Image Created !!! "'
 }
 
 stage('Run Container') {
-            steps {
+           
                 sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
-            }
 }
 
 stage('Push image') {
