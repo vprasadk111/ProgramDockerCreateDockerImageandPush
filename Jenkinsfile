@@ -26,6 +26,7 @@ stage('Run Container') {
             steps {
                 sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
             }
+}
 
 stage('Push image') {
 	//dockerhub - ID given while creating Docker Hub user
