@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'python --version'
+                sh 'docker run -p 5000:5000 -d vprasadk/programdockercreatedockerimageandpush:latest'
             }
         }
     }
