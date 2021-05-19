@@ -1,3 +1,5 @@
+//Declare variable
+
 pipeline { 
 
   environment { 
@@ -14,7 +16,7 @@ pipeline {
 
   stages { 
 
-      stage('Cloning our Git') { 
+      stage('Clone Git') { 
 
           steps { 
 
@@ -24,7 +26,7 @@ pipeline {
 
       } 
 
-      stage('Building our image') { 
+      stage('Building the image') { 
 
           steps { 
 
@@ -39,7 +41,7 @@ pipeline {
       }
     
     
-    //
+    *****//
     
           stage('Container start') { 
 
@@ -56,9 +58,9 @@ pipeline {
 
       }
     
-    //
+    //******
 
-      stage('Deploy our image') { 
+      stage('Push Image to Docker Hub') { 
 
           steps { 
 
